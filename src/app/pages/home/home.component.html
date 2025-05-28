@@ -1,2 +1,14 @@
-<h1>¡Bienvenido a Home!</h1>
-<p>Esta es la página principal.</p>
+<h1>Product List</h1>
+
+<button (click)="loadProducts()">Load Products</button>
+
+
+<div *ngIf="error" style="color: red;">{{ error }}</div>
+
+<ul *ngIf="products.length > 0">
+  <li *ngFor="let product of products">
+    {{ product.name }} - {{ product.price }}€ - 
+    <strong *ngIf="product.available; else notAvailable">Available</strong>
+    <ng-template #notAvailable><span style="color: red;">Unavailable</span></ng-template>
+  </li>
+</ul>
