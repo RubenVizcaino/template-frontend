@@ -1,0 +1,24 @@
+<!-- ==============================================
+     NAVBAR
+============================================== -->
+<header class="header">
+  <!-- 1) Menú de navegación a la izquierda -->
+  <nav class="main-nav">
+    <a href="#" (click)="goHome($event)">Inicio</a>
+    <a href="#" (click)="goProducts($event)">Productos</a>
+    <a href="#" (click)="goAbout($event)">Sobre Nosotros</a>
+
+  </nav>
+
+  <!-- 2) Logo/Centro -->
+  <div class="logo" (click)="goHome($event)">
+    <img src="assets/logoCafe.png" alt="Logo Café" class="logo-img" />
+    <span class="logo-text">TEMPLATE CAFÉ</span>
+  </div>
+
+  <!-- 3) Botones a la derecha -->
+  <div class="buttons">
+    <button class="login">Login</button>
+    <button class="cart">Carrito (0)</button>
+  </div>
+</header>

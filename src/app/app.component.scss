@@ -1,0 +1,19 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Luego, tu <main> o la sección principal puede crecer para rellenar el espacio */
+main {
+  flex: 1;
+  /* ocupa el espacio restante */
+}

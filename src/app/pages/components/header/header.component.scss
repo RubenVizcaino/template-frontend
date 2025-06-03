@@ -1,0 +1,96 @@
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px; /* 🚨 ALTURA FIJA */
+  background-color: #FDF5E6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem; /* Quitamos el padding vertical */
+}
+
+
+.main-nav {
+  flex: 0 0 auto;
+}
+
+.main-nav a {
+  margin-right: 1.5rem;
+  color: #826A5C;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:last-child {
+  margin-right: 0;
+}
+
+.main-nav a:hover {
+  color: #5D4632;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-img {
+  max-height: 50px;
+  width: auto;
+  margin-bottom: 0.25rem;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #5D4632;
+}
+
+.buttons {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.buttons .login {
+  padding: 0.5rem 1rem;
+  background-color: #C9A66B;
+  color: #FDF5E6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+}
+
+.buttons .login:hover {
+  background-color: #B98E5A;
+}
+
+.buttons .cart {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 2px solid #C9A66B;
+  color: #C9A66B;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.buttons .cart:hover {
+  background-color: #C9A66B;
+  color: #FDF5E6;
+}
+:host {
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
+}

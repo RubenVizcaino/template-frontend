@@ -1,14 +1,67 @@
-<h1>Product List</h1>
-
-<button (click)="loadProducts()">Load Products</button>
 
 
-<div *ngIf="error" style="color: red;">{{ error }}</div>
+<section class="hero">
+  <h1>
+    Bienvenido a <span class="highlight">TEMPLATE CAFÉ</span>
+  </h1>
+  <p>
+    Descubre sabores únicos de nuestro café recién tostado.<br />
+    Desde granos selectos hasta cápsulas prácticas,<br />
+    te llevamos la experiencia de la taza perfecta a tu hogar.
+  </p>
+  <a href="#productos" class="button">Explorar Productos</a>
+</section>
 
-<ul *ngIf="products.length > 0">
-  <li *ngFor="let product of products">
-    {{ product.name }} - {{ product.price }}€ - 
-    <strong *ngIf="product.available; else notAvailable">Available</strong>
-    <ng-template #notAvailable><span style="color: red;">Unavailable</span></ng-template>
-  </li>
-</ul>
+
+<section id="productos">
+  <h2>Productos Destacados</h2>
+  <div class="productos-grid">
+
+    <div class="producto">
+      <img src="assets/BolsaGrano.png" alt="Café en Grano" />
+      <h3>Café en Grano 250 g</h3>
+      <p>
+        Granos 100 % arábica de tueste medio.<br />
+        Aroma intenso y cuerpo equilibrado, ideal para moler al momento.
+      </p>
+      <span>$12.99</span>
+      <button>Añadir al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="assets/BolsaMolida.png" alt="Café Molido" />
+      <h3>Café Molido 250 g</h3>
+      <p>
+        Molido fino, listo para preparar en cafetera de goteo,<br />
+        prensa francesa o moka. Sabor perfectamente equilibrado.
+      </p>
+      <span>$11.49</span>
+      <button>Añadir al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="assets/cafeCapsulas.png" alt="Cápsulas de Café" />
+      <h3>Cápsulas Nespresso® × 10</h3>
+      <p>
+        Pack de 10 cápsulas compatibles con Nespresso®. <br />
+        Selección de intensidades y perfiles de sabor gourmet.
+      </p>
+      <span>$7.99</span>
+      <button>Añadir al Carrito</button>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="about">
+  <h2>Nuestra Historia</h2>
+  <p>
+    En <strong>TEMPLATE CAFÉ</strong> somos apasionados del café.<br />
+    Desde 2015, tostamos cuidadosamente granos de las mejores regiones,<br />
+    buscando ofrecer frescura y calidad en cada sorbo.<br />
+    Nuestro compromiso es llevar hasta tu casa una experiencia auténtica,<br />
+    apoyando a productores y promoviendo prácticas sostenibles.
+  </p>
+</section>
+

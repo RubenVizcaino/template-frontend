@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss',]
 })
 export class HomeComponent {
   products: Product[] = [];
@@ -27,4 +29,7 @@ export class HomeComponent {
       }
     });
   }
+
+
+
 }

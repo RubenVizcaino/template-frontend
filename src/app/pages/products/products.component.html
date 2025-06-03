@@ -1,0 +1,47 @@
+<mat-sidenav-container class="filtro-container">
+  <!-- Sidebar de Filtros -->
+  <mat-sidenav #sidenav mode="over">
+    <div class="sidenav-header">
+  <span class="close-button" (click)="sidenav.close()">✕</span>
+  <h3 class="filters">Filtros</h3>
+</div>
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Filtrar por Categoría</mat-label>
+      <mat-select [(ngModel)]="selectedCategory">
+        <mat-option value="">Todas</mat-option>
+        <mat-option value="GRANO">Grano</mat-option>
+        <mat-option value="MOLIDO">Molido</mat-option>
+        <mat-option value="CAPSULAS">Cápsulas</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Precio Máximo</mat-label>
+      <input matInput type="number" [(ngModel)]="maxPrice" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="applyFilters()">Aplicar Filtros</button>
+
+  </mat-sidenav>
+
+  <!-- Productos -->
+  <mat-sidenav-content>
+    <button class="toggle-button" (click)="sidenav.toggle()">
+      🛒 Filtros
+    </button>
+    <section id="productos">
+      <div class="productos-grid">
+        <div class="producto" *ngFor="let prod of filtered">
+          <img [src]="prod.imageUrl" [alt]="prod.name" />
+          <h3>{{ prod.name }}</h3>
+          <p [innerHTML]="prod.description"></p>
+          <div class="producto-footer">
+            <span>\${{ prod.price | number:'1.2-2' }}</span>
+            <button>Añadir al Carrito</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>
