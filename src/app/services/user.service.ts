@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
 import { environment } from '../../enviroments/environment';
+import { User } from '../models/user.model';
 
 
 @Injectable({
@@ -13,12 +14,8 @@ export class UserService {
 
   constructor(private http: HttpService) {}
 
-  register(user: any): Observable<any> {
+  register(user: User): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, user);
-  }
-
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login?username=${username}&password=${password}`, {});
   }
 
   getAllUsers(): Observable<any[]> {
@@ -36,4 +33,10 @@ export class UserService {
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/delete/${id}`);
   }
+
+login(username: string, password: string): Observable<any> {
+  return this.http.post(`${this.apiUrl}/login?username=${username}&password=${password}`, {});
+}
+
+
 }

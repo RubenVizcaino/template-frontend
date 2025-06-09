@@ -1,10 +1,9 @@
 <mat-sidenav-container class="filtro-container">
-  <!-- Sidebar de Filtros -->
   <mat-sidenav #sidenav mode="over">
     <div class="sidenav-header">
-  <span class="close-button" (click)="sidenav.close()">✕</span>
-  <h3 class="filters">Filtros</h3>
-</div>
+      <span class="close-button" (click)="sidenav.close()">✕</span>
+      <h3 class="filters">Filtros</h3>
+    </div>
 
     <mat-form-field appearance="fill" style="width: 100%;">
       <mat-label>Filtrar por Categoría</mat-label>
@@ -28,7 +27,7 @@
   <!-- Productos -->
   <mat-sidenav-content>
     <button class="toggle-button" (click)="sidenav.toggle()">
-      🛒 Filtros
+ Filtros
     </button>
     <section id="productos">
       <div class="productos-grid">
@@ -37,8 +36,8 @@
           <h3>{{ prod.name }}</h3>
           <p [innerHTML]="prod.description"></p>
           <div class="producto-footer">
-            <span>\${{ prod.price | number:'1.2-2' }}</span>
-            <button>Añadir al Carrito</button>
+            <span>{{ prod.price | number:'1.2-2' }}€</span>
+            <button (click)="goToProductDetail(prod.id,$event)">Añadir al Carrito</button>
           </div>
         </div>
       </div>

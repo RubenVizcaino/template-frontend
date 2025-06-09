@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem; /* Quitamos el padding vertical */
+  
 }
 
 
@@ -51,6 +52,12 @@
   font-size: 1.25rem;
   font-weight: bold;
   color: #5D4632;
+  font-family: 'Milky Juice', sans-serif;
+}
+.user{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .buttons {

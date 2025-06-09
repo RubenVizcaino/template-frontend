@@ -9,7 +9,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 import { MatIconModule } from '@angular/material/icon';
 
 
@@ -20,7 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
-  imports: [NgFor, DecimalPipe, FormsModule, MatSelectModule, MatFormFieldModule, MatSidenavModule,MatInputModule,MatIconModule]
+  imports: [NgFor, DecimalPipe, FormsModule, MatSelectModule, MatFormFieldModule, MatSidenavModule, MatInputModule, MatIconModule]
 })
 
 export class ProductsComponent {
@@ -31,10 +33,14 @@ export class ProductsComponent {
   selectedCategory: string = '';
   maxPrice: number | null = null;
 
-  
 
 
-  constructor(private productService: ProductService) { }
+
+  constructor(
+    private productService: ProductService,
+    private authService: AuthService,
+    private router: Router,
+    private cartService: CartService) { }
 
   ngOnInit() {
     this.productService.getAll().subscribe({
@@ -49,5 +55,15 @@ export class ProductsComponent {
     this.filtered = this.products
       .filter(prod => this.selectedCategory ? prod.category === this.selectedCategory : true)
       .filter(prod => this.maxPrice !== null ? prod.price <= this.maxPrice : true);
+  }
+
+  
+  goToProductDetail(productId: number, event: Event) {
+    event.preventDefault();
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/productDetail', productId]);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }

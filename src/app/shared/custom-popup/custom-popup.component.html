@@ -1,0 +1,14 @@
+<div *ngIf="popupData" class="popup-backdrop">
+  <div class="popup-modal">
+    <h3>{{ popupData.title }}</h3>
+    <p>{{ popupData.message }}</p>
+    <div class="popup-actions">
+      <button class="cancel-btn" (click)="onCancel()">
+        {{ popupData.cancelText || 'Cancelar' }}
+      </button>
+      <button class="confirm-btn" (click)="onConfirm()">
+        {{ popupData.confirmText || 'Aceptar' }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -14,11 +14,11 @@ export class HttpService {
     }
 
     post<T>(path: string, body: Object = {}): Observable<T> {
-        return this.http.post<T>(`${path}`, JSON.stringify(body));
+        return this.http.post<T>(`${path}`, body);
     }
 
     put<T>(path: string, body: Object = {}): Observable<T> {
-        return this.http.put<T>(`${path}`, JSON.stringify(body));
+        return this.http.put<T>(`${path}`, body);
     }
 
     delete<T>(path: string): Observable<T> {

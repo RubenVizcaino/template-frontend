@@ -1,0 +1,40 @@
+<div class="login-bg">
+  <div class="login-card">
+    <h2 class="login-title">Inicia sesión</h2>
+    <form (ngSubmit)="login()" autocomplete="off" class="login-form">
+      <div *ngIf="errorMsg" class="login-error">
+        {{ errorMsg }}
+      </div>
+
+      <div class="login-field">
+        <label>Usuario</label>
+        <input
+          type="username"
+          [(ngModel)]="username"
+          name="username"
+          required
+          placeholder="Usuario"
+        />
+      </div>
+
+      <div class="login-field">
+        <label>Contraseña</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          placeholder="Contraseña"
+        />
+      </div>
+
+      <button class="login-btn" type="submit" [disabled]="isLoading">
+        {{ isLoading ? 'Entrando...' : 'Entrar' }}
+      </button>
+    </form>
+    <p class="login-register-link">
+      ¿No tienes cuenta?
+      <a (click)="goRegister($event)">Regístrate</a>
+    </p>
+  </div>
+</div>

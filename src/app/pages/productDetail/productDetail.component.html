@@ -1,0 +1,26 @@
+<div class="detalle-producto-center" *ngIf="product">
+  <div class="detalle-producto-card">
+    <div class="detalle-producto-foto">
+      <img [src]="product.imageUrl" [alt]="product.name" />
+    </div>
+    <div class="detalle-producto-info">
+      <h2>{{ product.name }}</h2>
+      <p class="descripcion">{{ product.description }}</p>
+      <div class="precio">
+        {{ product.price | number:'1.2-2' }} €
+      </div>
+      <div class="cantidad-add">
+        <label for="cantidad">Cantidad:</label>
+        <input id="cantidad" type="number" min="1" max="{{product.stock}}" [(ngModel)]="quantity" />
+        <span style="color:#5D4632;font-size:0.95rem;">(Stock: {{product.stock}})</span>
+      </div>
+      <button class="btn-add-cart" [disabled]="!product.available || quantity > product.stock"
+        (click)="addToCart(product)">
+        Añadir al carrito
+      </button>
+      <div *ngIf="!product.available" style="color:#B98E5A;margin-top:8px;">
+        No disponible actualmente
+      </div>
+    </div>
+  </div>
+</div>

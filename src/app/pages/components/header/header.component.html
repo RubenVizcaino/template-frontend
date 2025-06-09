@@ -17,8 +17,19 @@
   </div>
 
   <!-- 3) Botones a la derecha -->
+
   <div class="buttons">
-    <button class="login">Login</button>
-    <button class="cart">Carrito (0)</button>
+    <ng-container *ngIf="!authService.isAuthenticated(); else loggedIn">
+      <button class="login" (click)="goLogin($event)">Inciar Sesión</button>
+      <button class="login" (click)="goRegister($event)">Registrate</button>
+    </ng-container>
+    <ng-template #loggedIn>
+      <span class="user" *ngIf="getUsername()">Hola, {{ getUsername() }}</span>
+      <button class="login" (click)="logout()">Cerrar Sesión</button>
+      <button class="cart" (click)="goCart()">Carrito ({{ cartCount }})</button>
+
+    </ng-template>
   </div>
+
+
 </header>

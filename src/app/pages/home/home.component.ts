@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -15,7 +17,7 @@ export class HomeComponent {
   products: Product[] = [];
   error: string | null = null;
 
-  constructor(private productService: ProductService) {}
+  constructor(private router: Router,private productService: ProductService) {}
 
   loadProducts(): void {
     this.error = null; 
@@ -30,6 +32,9 @@ export class HomeComponent {
     });
   }
 
-
+  goProducts(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/products']);
+  }
 
 }

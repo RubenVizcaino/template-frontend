@@ -9,6 +9,6 @@ export interface Product {
   stock: number;
   imageUrl: string;
   category: Category;
-  createdAt: string;  // o Date, depende de cómo quieras manejar fechas
-  updatedAt: string;  // o Date
+  createdAt: string; 
+  updatedAt: string;
 }
